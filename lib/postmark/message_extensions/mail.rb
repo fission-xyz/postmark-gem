@@ -15,6 +15,16 @@ module Mail
       header['TAG'] = val
     end
 
+    def inline_css(val = nil)
+      self.inline_css=(val) unless val.nil?
+      header['INLINE-CSS'].to_s
+    end
+
+    def inline_css=(val)
+      header['INLINE-CSS'] = (!!val).to_s
+    end
+
+
     def track_links(val = nil)
       self.track_links=(val) unless val.nil?
       header['TRACK-LINKS'].to_s
@@ -190,6 +200,7 @@ module Mail
         subject      tag
         attachment   to
         track-opens  track-links
+        inline-css
         postmark-template-alias
         message-stream
       ]

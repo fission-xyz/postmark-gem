@@ -32,6 +32,7 @@ module Postmark
         'Tag' => @message.tag.to_s,
         'TrackOpens' => (cast_to_bool(@message.track_opens) unless @message.track_opens.empty?),
         'TrackLinks' => (::Postmark::Inflector.to_postmark(@message.track_links) unless @message.track_links.empty?),
+        'InlineCss' => (cast_to_bool(@message.inline_css) unless @message.inline_css.empty?),
         'Metadata' => @message.metadata,
         'TemplateAlias' => @message.template_alias,
         'TemplateModel' => @message.template_model,
